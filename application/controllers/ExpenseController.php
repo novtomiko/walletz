@@ -25,13 +25,29 @@ class ExpenseController extends CI_Controller
             $this->ExpenseModel->create();
             redirect(base_url('home'));
         }else {
+            $data["judul"] = "Walletz Dasboard";
+            $data["user"] = $this->UserModel
+                ->cekData(["email" => $this->session->userdata("email")])
+                ->row_array();
+            $this->load->view("templates/header", $data);
+            $this->load->view("templates/sidebar", $data);
+            $this->load->view("templates/topbar", $data);
             $this->load->view('expense/addexpense', $data);
+            $this->load->view("templates/footer");
         }
     }
     public function edit($id){
         $data['expense'] = $this->ExpenseModel->getExpenseByID($id);
         $data['wallets'] = $this->WalletModel->getWallets();
+        $data["judul"] = "Walletz Dasboard";
+        $data["user"] = $this->UserModel
+            ->cekData(["email" => $this->session->userdata("email")])
+            ->row_array();
+        $this->load->view("templates/header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data);
         $this->load->view('expense/editexpense', $data);
+        $this->load->view("templates/footer");
     }
     public function save($id){
         $this->form_validation->set_rules('name', 'Name', 'required');
