@@ -21,7 +21,16 @@ class WalletController extends CI_Controller
             redirect(base_url('home'));
         }
         else{
+            $data["judul"] = "Walletz Dasboard";
+            $data["user"] = $this->UserModel
+                ->cekData(["email" => $this->session->userdata("email")])
+                ->row_array();
+            $this->load->view("templates/header", $data);
+            $this->load->view("templates/sidebar", $data);
+            $this->load->view("templates/topbar", $data);
             $this->load->view('wallet/addwallet');
+            $this->load->view("templates/footer");
+            
         }
     }
     public function edit($id){
@@ -29,7 +38,16 @@ class WalletController extends CI_Controller
         if (!$data['wallet']) {
             redirect(base_url('home'));
         }
+        $data["judul"] = "Walletz Dasboard";
+        $data["user"] = $this->UserModel
+            ->cekData(["email" => $this->session->userdata("email")])
+            ->row_array();
+        $this->load->view("templates/header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data);
         $this->load->view('wallet/editwallet', $data);
+        $this->load->view("templates/footer");
+       
     }
     public function save($id){
         $data['wallet'] = $this->WalletModel->getWalletByID($id);
