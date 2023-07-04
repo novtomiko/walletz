@@ -46,7 +46,6 @@
 <body>
     <div>
         <h1>Welcome, <?= $name ?></h1>
-        <a id="logout" href="<?= base_url('logout') ?>">Logout</a>
     </div>
     <br>
     <div>

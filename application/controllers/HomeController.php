@@ -15,7 +15,15 @@ class HomeController extends CI_Controller
         $data['name'] = $this->session->userdata('name');
         $data['wallets'] = $this->WalletModel->getWallets();
         $data['expenses'] = $this->ExpenseModel->getExpenses();
+        $data["judul"] = "Walletz Dasboard";
+        $data["user"] = $this->UserModel
+            ->cekData(["email" => $this->session->userdata("email")])
+            ->row_array();
+        $this->load->view("templates/header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data); 
         $this->load->view('home', $data);
+        $this->load->view("templates/footer");
     }
 }
 ?>
