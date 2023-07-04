@@ -45,7 +45,10 @@ class UserController extends CI_Controller
             redirect(base_url('login'));
         }
         else{
+             $data["judul"] = "Registrasi Member";
+            $this->load->view("templates/aute_header", $data);
             $this->load->view('auth/register');
+             $this->load->view("templates/aute_footer");
         }
     }
 
