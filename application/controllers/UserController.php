@@ -24,7 +24,11 @@ class UserController extends CI_Controller
             }
         }
         else{
+            $data['judul'] = 'Login';
+            $data['user'] = '';
+            $this->load->view('templates/aute_header', $data);
             $this->load->view('auth/login');
+            $this->load->view('templates/aute_footer');
         }
     }
 
