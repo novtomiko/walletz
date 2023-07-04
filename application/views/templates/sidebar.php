@@ -23,6 +23,9 @@
         <a class="nav-link pb-0" href="<?= base_url("home") ?>">
        <i class="fa fa-fw fa book"></i>
        <span>Home</span></a>
+       <a class="nav-link pb-0" href="<?= base_url("wallets") ?>">
+       <i class="fa fa-fw fa book"></i>
+       <span>Wallet Details</span></a>
        <a class="nav-link pb-0" href="<?= base_url("logout") ?>">
        <i class="fa fa-fw fa book"></i>
        <span>Logout</span></a>

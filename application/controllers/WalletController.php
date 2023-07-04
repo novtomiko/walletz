@@ -5,13 +5,26 @@ class WalletController extends CI_Controller
     public function __construct(){
         parent::__construct();
         $this->load->model('WalletModel');
+        $this->load->model('ExpenseModel');
         if(!$this->session->userdata('email')){
             redirect(base_url('login'));
         }
     }    
     public function index(){
         $data['wallets'] = $this->WalletModel->getWallets();
+        $data['expenses'] = $this->ExpenseModel->getExpenses();
+        $data['totalExpenses'] = $this->ExpenseModel->getTotalExpenses();
+        $data['totalIncomes'] = $this->ExpenseModel->getTotalIncomes();
+        $data["judul"] = "My Wallet";
+        $data["user"] = $this->UserModel
+            ->cekData(["email" => $this->session->userdata("email")])
+            ->row_array();
+        $this->load->view("templates/header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data);
         $this->load->view('wallet/wallets', $data);
+        $this->load->view("templates/footer");
+        
     }
     public function add(){
         $this->form_validation->set_rules('name', 'Name', 'required|min_length[3]|max_length[20]|trim');

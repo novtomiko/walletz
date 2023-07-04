@@ -58,6 +58,35 @@ class ExpenseModel extends CI_Model
             return [];
         }     
     }
+
+    public function getTotalExpenses(){
+        $user_id = $this->session->userdata('user_id');
+        $this->db->select('expense_amount');
+        $this->db->join('Wallet', 'Wallet.wallet_id = Expense.wallet_id');
+        $this->db->where('Expense.user_id', $user_id);
+        $this->db->where('Expense.expense_category', 'expense');
+        $query = $this->db->get('Expense');
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }else{
+            return [];
+        }   
+    }
+
+    public function getTotalIncomes(){
+        $user_id = $this->session->userdata('user_id');
+        $this->db->select('expense_amount');
+        $this->db->join('Wallet', 'Wallet.wallet_id = Expense.wallet_id');
+        $this->db->where('Expense.user_id', $user_id);
+        $this->db->where('Expense.expense_category', 'income');
+        $query = $this->db->get('Expense');
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }else{
+            return [];
+        }   
+    }
+
     public function create(){
         $data = array(
             'user_id' => $this->session->userdata('user_id'),
