@@ -25,11 +25,13 @@
                 <td></td>
                 <td><input type="submit" value="Login"></td>
             </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Register"></td>
-            </tr>
         </table>
+				<div class="text-center">
+                      <a class="small" href="
+													<?= base_url(
+                                      "UserController/register"
+                                  ) ?>">Daftar user baru </a>
+                    </div>
     </form>
 </body>
 </html>
