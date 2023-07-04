@@ -2,7 +2,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-squint"></i>
                 </div>
@@ -25,7 +25,7 @@
        <span>Home</span></a>
        <a class="nav-link pb-0" href="<?= base_url("wallets") ?>">
        <i class="fa fa-fw fa book"></i>
-       <span>Wallet Summary</span></a>
+       <span>Account Summary</span></a>
        <a class="nav-link pb-0" href="<?= base_url("logout") ?>">
        <i class="fa fa-fw fa book"></i>
        <span>Logout</span></a>
@@ -35,7 +35,7 @@
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
           <button class="rounded-circle border-0" id="sidebarToggle"></button>
-          </div>
+        </div>
 
           </ul>
           <!-- End of Sidebar --   >

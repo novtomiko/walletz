@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Wallets</title>
+    <title>My Account</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <style>
         table{
@@ -25,7 +25,7 @@
             <div class="col-lg-6 justify-content-x"> <?= $this->session->flashdata('pesan'); ?> </div>
         </div>
         <div class="card mb-3 style="width: 100%; height: 100%"">
-        <h1>Here are your Wallets Summary</h1>
+        <h1>Here are your Account Summary</h1>
         <?php if(count($wallets) < 1) : ?>
             <p>You don't have any wallets yet.</p>
             <a href=<?= base_url('wallets/add')?>>Add wallet</a>
@@ -42,7 +42,7 @@
             <?php foreach($wallets as $wallets) : ?>
                 <?php $total_balance = (int)$wallets->wallet_amount + (int)$total_balance;?>
             <?php endforeach; ?>
-                <h4>Your Wallets Summary is</h4>
+                <h4>Your Account Summary is</h4>
                        <canvas id='walletSummary' style="width:100%;max-width:600px"></canvas>
                         <script>
                         var xValues = ["Incomes", "Expenses","Balance"];

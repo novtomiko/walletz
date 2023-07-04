@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>pustaka-booking | <?= $judul ?></title>
+    <title>Walletz | <?= $judul ?></title>
 
     <!-- Custom fonts for this template-->
    <link href="<?= base_url(

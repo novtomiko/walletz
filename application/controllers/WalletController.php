@@ -15,7 +15,7 @@ class WalletController extends CI_Controller
         $data['expenses'] = $this->ExpenseModel->getExpenses();
         $data['totalExpenses'] = $this->ExpenseModel->getTotalExpenses();
         $data['totalIncomes'] = $this->ExpenseModel->getTotalIncomes();
-        $data["judul"] = "My Wallet";
+        $data["judul"] = "My Account";
         $data["user"] = $this->UserModel
             ->cekData(["email" => $this->session->userdata("email")])
             ->row_array();
