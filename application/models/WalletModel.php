@@ -26,6 +26,7 @@ class WalletModel extends CI_Model
             return false;
         }
     }
+
     public function create(){
         
         $data = array(
