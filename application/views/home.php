@@ -1,61 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Begin Page Content -->
+<style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <style>
-        body {
-            background-color: #f2f2f2;
-        }
+    table {
+        border: 1px solid black;
+    }
 
-        h1 {
-            display: inline-block;
-        }
+    th {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+    }
 
-        div {
-            align-items: center;
-            justify-content: center;
-        }
-
-        #logout {
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            float: right;
-            margin-top: 30px;
-        }
-
-        table {
-            border: 1px solid black;
-        }
-
-        th {
-            border: 1px solid black;
-            padding: 10px;
-        }
-
-        td {
-            border: 1px solid black;
-            padding: 3px;
-        }
-    </style>
-</head>
-
-<body>
+    td {
+        border: 1px solid black;
+        padding: 3px;
+        text-align: center;
+    }
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 justify-content-x"> <?= $this->session->flashdata('pesan'); ?> </div>
+  </div>
+  <div class="card mb-3">
     <div>
-        <h1>Welcome, <?= $name ?></h1>
-        <a id="logout" href="<?= base_url('logout') ?>">Logout</a>
+        <h1>Welcome <?= $name ?>,</h1>
     </div>
     <br>
     <div>
-        <h2>Here are your wallets</h2>
-        <a href=<?= base_url('wallets/add') ?>>Add wallet</a>
+        <h2>Here are your Wallets</h2>
+        <a href=<?= base_url('wallets/add') ?>>Add New Wallet</a>
         <?php if (count($wallets) < 1) : ?>
-            <p>You don't have any wallets yet.</p>
+            <p>You don't have any Wallet yet.</p>
         <?php else : ?>
-            <table>
+            <table style="width:50%">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -80,12 +57,12 @@
     </div>
     <br>
     <div>
-        <h2>Here are your expenses</h2>
-        <a href=<?= base_url('expenses/add') ?>>Add expense</a>
+        <h2>Here are your Incomes & Expenses</h2>
+        <a href=<?= base_url('expenses/add') ?>>Add Income or Expense</a>
         <?php if (count($expenses) < 1) : ?>
-            <p>You don't have any expenses yet.</p>
+            <p>You don't have any Expenses yet.</p>
         <?php else : ?>
-            <table>
+            <table style="width:50%">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -112,6 +89,7 @@
             </table>
         <?php endif; ?>
     </div>
-</body>
-
-</html>
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<!-- End of Main Content -->

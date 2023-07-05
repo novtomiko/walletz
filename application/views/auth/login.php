@@ -1,31 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <!-- login page using table-->
-    <h2>Login</h2>
-    <?= $this->session->flashdata('msg'); ?>
-    <form method="post" action=<?= base_url('login'); ?>>
-        <table>
-            <tr>
-                <td><label for="email">Email:</label></td>
-                <td><input type="text" id="email" name="email" value="<?= set_value('email');?>"></td>
-                <td><small><?= form_error('email') ?></small></td>
-            </tr>
-            <tr>
-                <td><label for="password">Password:</label></td>
-                <td><input type="password" id="password" name="password" ></td>
-                <td><small><?= form_error('password') ?></small></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-</body>
-</html>
+    <div class="container">
+      <!-- Outer Row -->
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+              <!-- Nested Row within Card Body -->
+              <div class="row">
+                <div class="col-lg">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h1 class="h3 text-gray-900 mb-4">Selamat Datang di Walletz</h1>
+											<h1 class="h4 text-gray-900 mb-4">Silakan Login</h1>
+                    </div> <?= $this->session->flashdata("pesan") ?> <form class="user" method="post" action="
+									<?= base_url(
+                                    "login"
+                                ) ?>">
+                      <div class="form-group">
+                        <input type="text" class="form-control form-control-user" value="<?= set_value("email"); ?>" id="email" placeholder="Email" name="email"> 
+                        <?= form_error("email", '<small class="text-danger pl-3">', "</small>") ?>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control form-control-user" id="password" placeholder="Password" name="password"> <?= form_error("password", '
+												<small class="text-danger pl-3">', "</small>") ?>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-user btn-block"> Login </button>
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                      <a class="small" href="
+													<?= base_url(
+                                      "UserController/Register"
+                                  ) ?>">Registrasi Member Baru</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
